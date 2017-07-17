@@ -1,0 +1,10 @@
+﻿create table portaldb(
+id number(3) primary key,
+url varchar2(100) not null,
+name varchar2(100),
+hiduke date
+);
+
+create sequence seq_id;
+
+insert into portaldb values(seq_id.nextval,'about:blank','例のページ','20170101');
