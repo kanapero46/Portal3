@@ -3,7 +3,7 @@ package db_ma;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DBManager{
+public class DBManager {
 
 	/**
 	 * DB接続用ドライバの登録
@@ -16,20 +16,28 @@ public class DBManager{
 	private static final String USER_NAME = "db_user";
 	/** DB接続するためのパスワード */
 	private static final String PASSWORD = "systemsss";
+	/** SQL文作成のためのテーブル名 */
+	private static final String TABLE = "personal";
 
-
-	public static Connection getConnection() throws Exception{
+	public static Connection getConnection() throws Exception {
 		try {
 			Class.forName(DRIVER);
-			Connection con = DriverManager.getConnection(
-					URL,USER_NAME,PASSWORD);
+			Connection con = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
 			return con;
-		}catch(Exception e){
+		} catch (Exception e) {
 			throw new Exception(e);
 		}
 	}
 
-	public static void main(String[] args) throws Exception{
+	public static String sqlDelete(String id) throws Exception {
+			String sql = null;
+			sql = "DELETE FROM " + TABLE + " WHERE ID=" + id + ";";
+			return sql;
+	}
+
+
+
+	public static void main(String[] args) throws Exception {
 		Connection con = getConnection();
 		System.out.println("接続しました");
 		System.out.println("con = " + con);
