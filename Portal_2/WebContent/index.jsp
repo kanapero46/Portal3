@@ -26,14 +26,15 @@ while(rs.next()){
 %>
 
 
-
+<form action="/insert.jsp" method="post">
 			<tr>
 				<td><%=rs.getString("id")%></td>
 				<td><a href="<%=rs.getString("url")%>"><%=rs.getString("url")%></a></td>
 				<td><%=rs.getString("name")%></td>
-				<td><form action="/remove.jsp"><input type="button" value="削除" name="remove"></form></td>
+				<td><input type="submit" value="更新" name="<%=rs.getString("id")%>"></td>
 			</tr>
 	</table>
+</form>
 <%
 }
 rs.close();
