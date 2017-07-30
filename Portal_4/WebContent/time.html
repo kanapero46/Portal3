@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- 時計表示スクリプト -->
+<script>
+//現在の時間を表示する
+function set2fig(num) {
+	   // 桁数が1桁だったら先頭に0を加えて2桁に調整する
+	   var ret;
+	   if( num < 10 ) { ret = "0" + num; }
+	   else { ret = num; }
+	   return ret;
+	}
+	function showClock2() {
+	   var nowTime = new Date();
+	   var year = nowTime.getFullYear();
+	   var month = nowTime.getMonth()+1;
+		var day = nowTime.getDate();
+	   var nowHour = set2fig( nowTime.getHours() );
+	   var nowMin  = set2fig( nowTime.getMinutes() );
+	   var nowSec  = set2fig( nowTime.getSeconds() );
+	   var msg = year + "年" + month + "月" + day + "日　" + nowHour + ":" + nowMin + ":" + nowSec + " です。";
+	   document.getElementById("RealtimeClockArea").innerHTML = msg;
+	}
+	setInterval('showClock2()',1000);
+
+</script>
+
+</head>
+<body>
+<BR>
+<div style="float:left"><p id="RealtimeClockArea">※Now Loading</p></div>
+
+</body>
+</html>

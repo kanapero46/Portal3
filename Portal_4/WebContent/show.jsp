@@ -11,7 +11,7 @@
 </head>
 <body>
 
-<a href="insert.html">データ追加ページ</a>
+<!-- <a href="insert.html">データ追加ページ</a> -->
 
 	<table border="1">
 

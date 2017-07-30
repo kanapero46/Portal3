@@ -1,15 +1,76 @@
-
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd">
-<html lang="ja">
+<!DOCTYPE html>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<!-- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" "http://www.w3.org/TR/html4/frameset.dtd"> -->
+<!-- <html lang="ja"> -->
+<!-- <head> -->
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> -->
 <title>ポータルページ</title>
+<style>
+body,html{
+    height:100%;
+    margin:0;
+    padding:0;
+    overflow: hidden;
+}
+iframe{
+    border:none
+}
+/* ヘッダーページ表示エリア */
+#header{
+    position:absolute;
+    top:0;
+    left:0;
+    height:100px;
+    width:100%;
+}
+/* 時計ページ表示エリア */
+#time{
+    position:absolute;
+    top:75px;
+    left:0;
+    height:75px;
+    width:100%;
+}
+/* メインコンテンツ格納用 */
+#main_container{
+    position:absolute;
+    top:150px;
+    bottom:70px;
+    left:0;
+    height:500px;
+    width:*;
+}
+/* メインコンテンツ表示エリア */
+#content{
+	height:500px;
+	width:1024px;
+
+}
+    /*IE6用*/
+    _top:auto;
+    _bottom:auto;
+    _padding-top:50px;
+    _padding-bottom:70px;
+}
+#main{
+    *position:absolute; /* IE7用 */
+    _position:relative; /* IE6用 */
+    width:100%;
+    height:100%;
+}
+</style>
+
+
 </head>
 <body>
 
-<frame src="" name="header">
-<div id="main_header">
-</div>
+    <iframe src="menu.html" name="header" id="header">header</iframe>
+    <iframe src="time.html" name="time" id="time">time</iframe>
+    <div id="main_container">
+        <iframe src="show.jsp" name="content" id="content">main</iframe>
+    </div>
 
 
 
