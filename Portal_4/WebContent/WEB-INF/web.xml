@@ -17,4 +17,13 @@
     <servlet-name>Servlet</servlet-name>
     <url-pattern>/SServlet</url-pattern>
   </servlet-mapping>
+
+    <servlet>
+    <servlet-name>Delete</servlet-name>
+    <servlet-class>db_ma.DBdelete</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Delete</servlet-name>
+    <url-pattern>/del</url-pattern>
+  </servlet-mapping>
 </web-app>

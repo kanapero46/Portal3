@@ -12,11 +12,14 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/del")
+@WebServlet("del")
 public class DBdelete {
 
-	public void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException,
-	ServletException, SQLException{
+	public void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException,ClassNotFoundException, SQLException{
+		doPost(req,res);
+	}
+
+	public void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException, SQLException {
 
 		res.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = res.getWriter();
@@ -34,14 +37,15 @@ public class DBdelete {
 			stm = conn.createStatement();
 
 			String id = req.getParameter("id");
+			int idNum = Integer.parseInt(id);
 			stm.executeUpdate(id);
-			rs = stm.executeQuery(DBManager.sqlDelete(id));
+			rs = stm.executeQuery(DBManager.sqlDelete(idNum));
 
 			out.println("<p>" + id + "の削除しました。</p>");
 
 		}catch(Exception e){
 			out.println("<p>");
-			out.println("データベースとの処理に失敗したため、処理を中止しました。</p>");
+			out.println("ERROR:データベースとの処理に失敗したため、処理を中止しました。<br/>"+e+"</p>");
 		}finally{
 			rs.close();
 			stm.close();

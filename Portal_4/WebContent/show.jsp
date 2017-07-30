@@ -10,13 +10,17 @@
 <title>Insert title here</title>
 </head>
 <body>
+
+<a href="insert.html">データ追加ページ</a>
+
 	<table border="1">
 
 <th>ID</th>
+<th>サイト名</th>
 <th>URL</th>
 <th>説明</th>
 <th>削除</th>
-
+			<tr>
 <%
 Class.forName("oracle.jdbc.driver.OracleDriver");
 Connection db=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","db_user","systemsss");
@@ -26,15 +30,14 @@ while(rs.next()){
 %>
 
 
-<form action="/insert.jsp" method="post">
-			<tr>
+<form action="/Portal_2/delete.jsp" method="get">
+
 				<td><%=rs.getString("id")%></td>
-				<td><a href="<%=rs.getString("url")%>"><%=rs.getString("url")%></a></td>
+				<td><%=rs.getString("sitename")%></td>
+				<td><a target="_blank" href="<%=rs.getString("url")%>"><%=rs.getString("url")%></a></td>
 				<td><%=rs.getString("name")%></td>
-				<td><input type="submit" value="更新" name="<%=rs.getString("id")%>"></td>
-			</tr>
-	</table>
-</form>
+				<td><button value="<%=rs.getString("id")%>" name="id">削除</button></td>
+	</tr>
 <%
 }
 rs.close();
@@ -42,6 +45,8 @@ objSql.close();
 db.close();
 %>
 
+	</table>
+</form>
 
 </body>
 </html>

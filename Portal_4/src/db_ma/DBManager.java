@@ -29,9 +29,9 @@ public class DBManager {
 		}
 	}
 
-	public static String sqlDelete(String id) throws Exception {
+	public static String sqlDelete(int idNum) throws Exception {
 			String sql = null;
-			sql = "DELETE FROM " + TABLE + " WHERE ID=" + id + ";";
+			sql = "DELETE FROM " + TABLE + " WHERE ID=" + idNum + ";";
 			return sql;
 	}
 
