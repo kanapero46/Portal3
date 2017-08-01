@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+#clock{
+top:10px;
+float:left;
+}
+
+
+
+</style>
 <!-- 時計表示スクリプト -->
 <script>
 //現在の時間を表示する
@@ -21,8 +30,12 @@ function set2fig(num) {
 	   var nowHour = set2fig( nowTime.getHours() );
 	   var nowMin  = set2fig( nowTime.getMinutes() );
 	   var nowSec  = set2fig( nowTime.getSeconds() );
-	   var msg = year + "年" + month + "月" + day + "日　" + nowHour + ":" + nowMin + ":" + nowSec + " です。";
+	   var msg = year + "年" + month + "月" + day + "日　" ;
+	   var time = nowHour + ":" + nowMin + ":" + nowSec ;
+	   var endString = " です。"
 	   document.getElementById("RealtimeClockArea").innerHTML = msg;
+	   document.getElementById("nowtimer").innerHTML = time;
+	   document.getElementById("shime").innerHTML = endString;
 	}
 	setInterval('showClock2()',1000);
 
@@ -30,8 +43,13 @@ function set2fig(num) {
 
 </head>
 <body>
-<BR>
-<div style="float:left"><p id="RealtimeClockArea">※Now Loading</p></div>
-
+<div id="clock">
+<p id="RealtimeClockArea" style="float:left">※Now Loading</p>　　
+<b><p id="nowtimer" style="float:left"></p></b>　
+<p id="shime" style="float:left"></p>
+</div>
+<br>
+<br>
+<a href="/Portal_4/WebContent/">戻る</a>
 </body>
 </html>

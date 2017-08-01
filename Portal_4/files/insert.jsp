@@ -5,37 +5,48 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%-- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
 
-<title>Insert title here</title>
+<title>ページの挿入</title>
 </head>
 <body>
+<div>
+
+
+</div>
 <%
 
 //DB用
 
-Connection db = null;
-Statement smt = null;
-ResultSet rs =null;
+      Connection db = null;
+      Statement smt = null;
+      ResultSet rs =null;
 try{
+
+
+    Date date = new Date();
+
+    String time = DateFormat.getDateInstance().format(date);
+
+     System.out.println(time);
 
 Class.forName("oracle.jdbc.driver.OracleDriver");
 db=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","db_user","systemsss");
 smt=db.createStatement();
 
-String id = request.getParameter("id");
+String url = request.getParameter("url");
+String info = request.getParameter("info");
+String sitename = request.getParameter("sitename");
 
-if (id.equals("back")){
-
-}else{
-//	 int del = Integer.parseInt("id");
 String sql
-= "DELETE FROM portaldb WHERE id='" + id +"'";
+= "INSERT INTO portaldb VALUES(SEQ_ID.NEXTVAL,'" + url + "','" + info +"','"+ time + "','" + sitename +"')";
+
 smt.executeUpdate(sql);
 System.out.println(sql);
 
-}
+%>
 
+<%
 }catch(SQLException e){
 	 e.printStackTrace();
 
@@ -44,12 +55,8 @@ System.out.println(sql);
 	smt.close();
 //	rs.close();
 }
-
 %>
-
-
-
-<jsp:forward page="/WebContent/show.jsp" />
+<jsp:forward page="/" />
 
 </body>
 </html>

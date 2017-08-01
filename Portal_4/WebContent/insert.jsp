@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%-- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
 
 <title>ページの挿入</title>
 </head>
@@ -33,7 +33,7 @@ try{
 Class.forName("oracle.jdbc.driver.OracleDriver");
 db=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","db_user","systemsss");
 smt=db.createStatement();
-
+request.setCharacterEncoding("UTF-8");
 String url = request.getParameter("url");
 String info = request.getParameter("info");
 String sitename = request.getParameter("sitename");
@@ -44,9 +44,9 @@ String sql
 smt.executeUpdate(sql);
 System.out.println(sql);
 
-%>
+String commit = "COMMIT;";
+smt.executeUpdate(commit);
 
-<%
 }catch(SQLException e){
 	 e.printStackTrace();
 
@@ -56,7 +56,7 @@ System.out.println(sql);
 //	rs.close();
 }
 %>
-<jsp:forward page="/" />
+<jsp:forward page="/WebContent/show.jsp" />
 
 </body>
 </html>

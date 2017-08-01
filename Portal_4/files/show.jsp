@@ -6,12 +6,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%-- <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%> --%>
 <title>Insert title here</title>
 </head>
 <body>
 
-<!-- <a href="insert.html">データ追加ページ</a> -->
+<a href="insert.html">データ追加ページ</a>
 
 	<table border="1">
 
@@ -30,7 +30,7 @@ while(rs.next()){
 %>
 
 
-<form action="/Portal_4/WebContent/delete.jsp" method="get">
+<form action="/Portal_2/delete.jsp" method="get">
 
 				<td><%=rs.getString("id")%></td>
 				<td><%=rs.getString("sitename")%></td>

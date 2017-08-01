@@ -35,7 +35,7 @@ ID：<%= request.getParameter("id") %>
 サイト名：<%=rs.getString("sitename") %>
 </p>
 
-<form action="<%=request.getContextPath()%>/WebContent/delete_p.jsp">
+<form action="<%=request.getContextPath()%>/delete_p.jsp">
 <button value="<%=request.getParameter("id")%>" name="id">実行</button>
 <button value="back" name="id">戻る</button>
 </form>
