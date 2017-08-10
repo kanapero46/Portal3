@@ -20,6 +20,8 @@
 		<th>URL</th>
 		<th>説明</th>
 		<th>削除</th>
+		<th>開く</th>
+		<th>更新</th>
 		<tr>
 			<%
 				Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -49,7 +51,7 @@
 
 <!-- 			<form action="/Portal_4/WebContent/update.jsp" method="get"> -->
 <form action="update.jsp" method="post">
-				<!-- 		リンク先を開く処理 -->
+				<!-- 		更新 -->
 				<td><button value="<%=rs.getString("id")%>" name="id">更新</button></td>
 			</form>
 		</tr>
