@@ -9,6 +9,8 @@
 <body>
 
 <div style="left">
+<!-- メール -->
+<!-- Google -->
 
 
 </div>
